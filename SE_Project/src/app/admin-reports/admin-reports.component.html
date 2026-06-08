@@ -1,0 +1,43 @@
+<div class="section">
+  <h3>Placement Reports</h3>
+  <ul>
+    <!-- Removed the 'Total Students Placed' line -->
+    <li *ngFor="let report of reports">
+      <!-- Only show Jobs and Companies -->
+      <ng-container *ngIf="report.key !== 'students'">
+        {{ report.title }} - {{ report.value }}
+        <button (click)="viewDetails(report)">View</button>
+      </ng-container>
+    </li>
+  </ul>
+
+  <!-- Dynamic details section -->
+  <div *ngIf="selectedReport" class="report-details">
+    <h4>{{ selectedReport.title }} Details</h4>
+
+    <p *ngIf="loading">Loading...</p>
+
+    <!-- Companies -->
+    <table *ngIf="selectedReport.key === 'companies' && reportDetails.length">
+      <tr><th>Company Name</th><th>Email</th><th>Status</th></tr>
+      <tr *ngFor="let c of reportDetails">
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.isActive ? 'Active' : 'Inactive' }}</td>
+      </tr>
+    </table>
+
+    <!-- Jobs -->
+    <table *ngIf="selectedReport.key === 'jobs' && reportDetails.length">
+      <tr><th>Job Title</th><th>Location</th></tr>
+      <tr *ngFor="let j of reportDetails">
+        <td>{{ j.title }}</td>
+        <td>{{ j.location }}</td>
+      </tr>
+    </table>
+
+    <p *ngIf="!loading && reportDetails.length === 0">No records found.</p>
+
+    <button (click)="closeDetails()">Close</button>
+  </div>
+</div>

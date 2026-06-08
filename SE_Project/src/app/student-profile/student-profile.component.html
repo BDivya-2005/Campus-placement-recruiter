@@ -1,0 +1,70 @@
+<div class="profile-container">
+  <!-- Display Mode -->
+  <div class="profile-card" *ngIf="!editMode">
+    <h2>Student Profile</h2>
+    <div class="profile-details">
+      <p><strong>Name:</strong> {{ profile.name }}</p>
+      <p><strong>Email:</strong> {{ profile.email }}</p>
+      <p><strong>Branch:</strong> {{ profile.branch }}</p>
+      <p><strong>Skills:</strong> {{ profile.skills.join(', ') }}</p>
+      <p><strong>Phone:</strong> {{ profile.phone }}</p>
+      <p><strong>Address:</strong> {{ profile.address }}</p>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a [href]="profile.linkedIn" target="_blank">{{ profile.linkedIn }}</a>
+      </p>
+    </div>
+    <button (click)="toggleEdit()">Edit Profile</button>
+  </div>
+
+  <!-- Edit Mode -->
+  <div class="profile-card" *ngIf="editMode">
+    <h2>Edit Profile</h2>
+    <form (ngSubmit)="saveProfile()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" name="name" [(ngModel)]="profile.name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" name="email" [(ngModel)]="profile.email" type="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="branch">Branch:</label>
+        <input id="branch" name="branch" [(ngModel)]="profile.branch" />
+      </div>
+
+      <div class="form-group">
+        <label for="skills">Skills (comma separated):</label>
+        <input
+          id="skills"
+          name="skills"
+          [ngModel]="profile.skills.join(', ')"
+          (ngModelChange)="onSkillsChange($event)"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input id="phone" name="phone" [(ngModel)]="profile.phone" />
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input id="address" name="address" [(ngModel)]="profile.address" />
+      </div>
+
+      <div class="form-group">
+        <label for="linkedIn">LinkedIn URL:</label>
+        <input id="linkedIn" name="linkedIn" [(ngModel)]="profile.linkedIn" type="url" />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="save-button">Save</button>
+        <button type="button" (click)="toggleEdit()" class="cancel-button">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

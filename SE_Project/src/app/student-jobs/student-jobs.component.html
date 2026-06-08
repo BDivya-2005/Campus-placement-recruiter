@@ -1,0 +1,8 @@
+<h2>Available Jobs</h2>
+<div *ngIf="jobs.length === 0">No jobs available at the moment.</div>
+<div class="job-card" *ngFor="let job of jobs">
+  <h3>{{ job.title }}</h3>
+  <p><strong>Company:</strong> {{ job.companyName }}</p>
+  <p><strong>Location:</strong> {{ job.location }}</p>
+  <button (click)="apply(job)">Apply</button>
+</div>

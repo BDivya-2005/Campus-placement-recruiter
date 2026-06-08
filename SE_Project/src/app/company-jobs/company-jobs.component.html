@@ -1,0 +1,53 @@
+<div class="jobs-container">
+  <header class="header">
+    <h2 class="heading">Posted Jobs</h2>
+    <button class="add-btn" (click)="toggleForm()">
+      <span class="plus-icon">+</span> {{ showForm ? 'Close' : 'Add Job' }}
+    </button>
+  </header>
+
+  <!-- Add/Edit Job Form -->
+  <div *ngIf="showForm" class="job-form">
+    <h3>{{ isEditing ? 'Edit Job' : 'Add New Job' }}</h3>
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Job Title"
+        [(ngModel)]="newJobTitle"
+        class="input-field"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Job Location"
+        [(ngModel)]="newJobLocation"
+        class="input-field"
+      />
+    </div>
+    <div class="form-buttons">
+      <button class="save-btn" (click)="saveJob()">
+        {{ isEditing ? 'Update' : 'Save' }}
+      </button>
+      <button class="cancel-btn" (click)="cancelJob()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Job Cards -->
+  <div *ngIf="jobs.length > 0; else noJobs" class="jobs-list">
+    <div class="job-card" *ngFor="let job of jobs; let i = index">
+      <div class="job-info">
+        <p class="job-title">{{ job.title }}</p>
+        <p class="job-location">{{ job.location }}</p>
+      </div>
+      <div class="job-actions">
+        <button class="edit-btn" (click)="editJob(i)">Edit</button>
+        <button class="delete-btn" (click)="deleteJob(i)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noJobs>
+    <p class="no-jobs-text">No jobs posted yet. Click “Add Job” to start!</p>
+  </ng-template>
+</div>

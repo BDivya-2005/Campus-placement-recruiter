@@ -1,0 +1,10 @@
+<div class="questions-container">
+  <h2>Company Questions</h2>
+
+  <div *ngFor="let group of groupedQuestions" class="company-group">
+    <h3>{{ group.company }}</h3>
+    <ul>
+      <li *ngFor="let q of group.questions">{{ q.title }} ({{ q.difficulty }})</li>
+    </ul>
+  </div>
+</div>

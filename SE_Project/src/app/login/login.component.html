@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+  <div class="login-container">
+    <h2>Login</h2>
+
+    <!-- Role Selection -->
+    <div class="role-selection">
+      <button *ngFor="let role of roles"
+              (click)="selectRole(role.type)"
+              [ngStyle]="{
+                'background-color': selectedRole === role.type ? role.color : '#e0e0e0',
+                'color': selectedRole === role.type ? 'white' : 'black'
+              }">
+        {{ role.title }}
+      </button>
+    </div>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="email" placeholder="{{getDemoEmail()}}" required>
+
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password" required>
+
+      <!-- Company Name only for company role -->
+      <div *ngIf="selectedRole === 'company'">
+        <label>Company Name</label>
+        <input type="text" name="companyName" [(ngModel)]="companyName" placeholder="Enter Company Name" required>
+      </div>
+
+      <div *ngIf="error" class="error-msg">{{ error }}</div>
+
+      <button type="submit" [disabled]="loading || loginForm.invalid">
+        {{ loading ? 'Signing In...' : 'Sign In' }}
+      </button>
+
+      <p>Don't have an account? <a [routerLink]="['/register']">Register</a></p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="resume-container">
+  <h2>Upload Your Resume</h2>
+
+  <div class="form-group file-upload">
+    <label for="resume">Upload Resume (PDF only):</label>
+    <input id="resume" type="file" (change)="onFileSelected($event)" accept=".pdf" />
+  </div>
+
+  <div *ngIf="selectedFile" class="file-details">
+    <p>Selected file: <strong>{{ selectedFile.name }}</strong></p>
+    <p *ngIf="uploadProgress">Upload progress: {{ uploadProgress }}%</p>
+  </div>
+
+  <div class="actions">
+    <button (click)="uploadResume()" [disabled]="!selectedFile">Upload Resume</button>
+  </div>
+
+  <div *ngIf="uploadedFileName" class="uploaded-info">
+    <p>Last uploaded file: <strong>{{ uploadedFileName }}</strong></p>
+  </div>
+
+  <div class="back-btn">
+    <button routerLink="/student/dashboard">⬅ Back to Dashboard</button>
+  </div>
+</div>

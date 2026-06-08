@@ -1,0 +1,122 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2 class="app-logo">Admin Panel</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a routerLink="/admin" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-tachometer-alt"></i>Dashboard
+      </a>
+      <a routerLink="/admin/users" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-users"></i>Manage Users
+      </a>
+      <a routerLink="/admin/reports" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-chart-line"></i>View Reports
+      </a>
+      <a routerLink="/admin/resumes" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-file-alt"></i>Student Resumes
+      </a>
+    </nav>
+    <button (click)="logout()" class="logout-btn">
+      <i class="fas fa-sign-out-alt"></i>Logout
+    </button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="main-header">
+      <h1>Welcome, Admin!</h1>
+      <div class="user-profile">
+        <span class="user-name">Admin (who Login)</span>
+        <div class="profile-pic">AD</div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="icon-wrapper bg-primary">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div>
+          <p class="stat-label">Total Students</p>
+          <p class="stat-value">{{ students.length }}</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-wrapper bg-success">
+          <i class="fas fa-building"></i>
+        </div>
+        <div>
+          <p class="stat-label">Total Companies</p>
+          <p class="stat-value">{{ companies.length }}</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-wrapper bg-warning">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div>
+          <p class="stat-label">Placement Offers</p>
+          <p class="stat-value">62</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="content-section">
+      <h2>Recent Student Signups</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Branch</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students">
+              <td>{{ student.name }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.branch }}</td>
+              <td>
+                <button class="action-btn delete" (click)="deleteStudent(student.name)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Active Companies -->
+    <div class="content-section">
+      <h2>Active Company Registrations</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Contact Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let company of companies">
+              <td>{{ company.name }}</td>
+              <td>{{ company.email }}</td>
+              <td>
+                <button class="action-btn delete" (click)="deleteCompany(company.name)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>

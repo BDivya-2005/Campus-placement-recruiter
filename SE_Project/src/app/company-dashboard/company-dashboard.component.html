@@ -1,0 +1,70 @@
+<div class="dashboard-wrapper">
+  <header class="dashboard-header">
+    <h2 class="welcome-message">Welcome, {{ companyName }}!</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </header>
+
+  <main class="dashboard-content">
+    <!-- Quick Links -->
+    <section class="quick-links">
+      <div class="card" routerLink="/company/jobs">
+        <i class="icon-briefcase"></i>
+        <h3>Jobs</h3>
+        <p>Manage job postings and applications.</p>
+      </div>
+
+      <div class="card" routerLink="/company/students">
+        <i class="icon-applicants"></i>
+        <h3>Applicants</h3>
+        <p>View and screen student applications.</p>
+      </div>
+
+      <div class="card" routerLink="/company/resumes">
+        <i class="icon-resumes"></i>
+        <h3>Student Resumes</h3>
+        <p>Browse resumes and find talent.</p>
+      </div>
+
+      <div class="card" (click)="goToAddQuestions()">
+        <i class="fas fa-plus-circle"></i>
+        <h3>Add Questions</h3>
+        <p>Create and manage interview questions.</p>
+      </div>
+    </section>
+
+    <!-- Dynamic Content -->
+    <section class="dynamic-content">
+      <!-- Job Posting Statistics -->
+      <div class="content-card">
+        <h3>Job Posting Statistics</h3>
+        <div class="stats-list">
+          <div class="job-stat-item" *ngFor="let job of jobPostingStats">
+            <div class="job-title-status">
+              <span class="job-title">{{ job.title }}</span>
+              <span class="status-pill status-{{ job.status.toLowerCase() }}">{{ job.status }}</span>
+            </div>
+            <div class="job-metrics">
+              <div class="metric-item" *ngIf="job.applicants && job.applicants > 0">
+                <span class="metric-count">{{ job.applicants }}</span>
+                <span class="metric-label">Applicants</span>
+              </div>
+              <div class="metric-item" *ngIf="job.views && job.views > 0">
+                <span class="metric-count">{{ job.views }}</span>
+                <span class="metric-label">Views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="content-card">
+        <h3>Recent Activity</h3>
+        <ul class="activity-list">
+          <li *ngFor="let activity of recentActivity" [innerHTML]="activity"></li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+</div>

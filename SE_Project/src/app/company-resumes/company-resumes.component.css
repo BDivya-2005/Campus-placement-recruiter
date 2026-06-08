@@ -1,0 +1,102 @@
+/* 🌈 Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6fa;
+  color: #333;
+}
+
+/* 🌟 Section Container */
+.section {
+  background: #fff;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.section h3 {
+  color: #007bff;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #00c6ff;
+  padding-left: 10px;
+}
+
+/* 🧾 Resume List */
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+li {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+li span {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 1rem;
+}
+
+li span strong {
+  color: #007bff;
+}
+
+/* 🔘 Button Styling */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #00b894, #55efc4);
+  color: white;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 190, 148, 0.4);
+}
+
+/* 📄 Loading / Empty States */
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1rem;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 768px) {
+  .section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,29 @@
+<h2>Admin Users</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>
+        <input *ngIf="user.editing" [(ngModel)]="user.email" />
+        <span *ngIf="!user.editing">{{ user.email }}</span>
+      </td>
+      <td>
+        <input *ngIf="user.editing" [(ngModel)]="user.role" />
+        <span *ngIf="!user.editing">{{ user.role }}</span>
+      </td>
+      <td>
+        <button *ngIf="!user.editing" (click)="edit(user)">Edit</button>
+        <button *ngIf="user.editing" (click)="save(user)">Save</button>
+        <button (click)="delete(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

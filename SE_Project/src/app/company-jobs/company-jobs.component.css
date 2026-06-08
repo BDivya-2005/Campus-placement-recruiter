@@ -1,0 +1,202 @@
+/* 🌈 Jobs Page Styling */
+.jobs-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 85%;
+  margin: 2rem auto;
+  transition: all 0.3s ease;
+}
+
+.jobs-container:hover {
+  transform: translateY(-3px);
+}
+
+/* 🔹 Header */
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-left: 5px solid #00c6ff;
+  padding-left: 10px;
+}
+
+.add-btn {
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 198, 255, 0.3);
+}
+
+.add-btn:hover {
+  background: linear-gradient(45deg, #00a8ff, #0099cc);
+  transform: scale(1.05);
+}
+
+/* 🧾 Form Section */
+.job-form {
+  margin-top: 1.5rem;
+  background: #f9fbff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0, 198, 255, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+.job-form h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid #d0d7e2;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 6px rgba(0, 198, 255, 0.2);
+}
+
+/* 🧍 Form Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn, .cancel-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.save-btn {
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  color: #fff;
+}
+
+.cancel-btn {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.save-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 198, 255, 0.3);
+}
+
+.cancel-btn:hover {
+  background: #d5d5d5;
+}
+
+/* 💼 Job Cards */
+.jobs-list {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.job-card {
+  background: white;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e6e9f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 18px rgba(0, 198, 255, 0.2);
+}
+
+.job-card p {
+  margin: 0.2rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.location {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ✨ Job Actions */
+.job-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.edit-btn, .delete-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.edit-btn {
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+  color: white;
+}
+
+.delete-btn {
+  background: linear-gradient(45deg, #ff6b6b, #e84118);
+  color: white;
+}
+
+.edit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+/* 💤 Empty State */
+.no-jobs {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 2rem;
+  background: #f1f3f6;
+  border-radius: 10px;
+  border: 1px dashed #bbb;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

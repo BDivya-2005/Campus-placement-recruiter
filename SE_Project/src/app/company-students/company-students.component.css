@@ -1,0 +1,122 @@
+/* 🌈 Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6fa;
+  color: #333;
+}
+
+/* 🌟 Heading */
+.heading {
+  margin: 1.5rem;
+  font-size: 1.6rem;
+  color: #007bff;
+  border-left: 4px solid #00c6ff;
+  padding-left: 10px;
+}
+
+/* 🌟 Applicant List */
+.applicant-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem;
+}
+
+/* 🌟 Applicant Card */
+.applicant-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  flex: 1 1 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.applicant-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 🌟 Applicant Details */
+.applicant-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar */
+.avatar-container {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Info Text */
+.info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.applicant-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.applicant-email {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 🌟 Action Buttons */
+.action-buttons button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-buttons button:hover {
+  background: #e84118;
+  transform: scale(1.1);
+}
+
+/* 🌟 Material Icon Styling */
+.material-icons {
+  font-size: 18px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .applicant-list {
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  .applicant-card {
+    flex: 1 1 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

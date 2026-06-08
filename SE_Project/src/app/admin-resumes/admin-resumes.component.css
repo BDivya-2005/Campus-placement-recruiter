@@ -1,0 +1,5 @@
+.section { background: #fee2e2; padding: 20px; border-radius: 10px; }
+ul { padding-left: 20px; }
+li { margin-bottom: 10px; }
+button { margin-left: 10px; padding: 4px 8px; border-radius: 5px; border: none; background-color: #b91c1c; color: white; cursor: pointer; }
+button:hover { background-color: #dc2626; }

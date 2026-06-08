@@ -1,0 +1,14 @@
+<div class="section">
+  <h3>Student Resumes</h3>
+
+  <p *ngIf="loading">Loading student resumes...</p>
+
+  <ul *ngIf="!loading && studentResumes.length > 0">
+    <li *ngFor="let student of studentResumes">
+      {{ student.name }} - {{ student.email }} - {{ student.branch }}
+      <button (click)="viewResume(student)">View Resume</button>
+    </li>
+  </ul>
+
+  <p *ngIf="!loading && studentResumes.length === 0">No resumes found.</p>
+</div>

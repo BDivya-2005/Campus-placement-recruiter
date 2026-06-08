@@ -1,0 +1,33 @@
+<h2 class="heading">Applicants</h2>
+
+<div class="applicant-list" *ngIf="applicants.length > 0; else noApplicants">
+  <div class="applicant-card" *ngFor="let s of applicants; let i = index">
+    <div class="applicant-details">
+      <div class="avatar-container">
+        <span class="avatar-initials">{{ s.name.charAt(0) }}</span>
+      </div>
+      <div class="info-text">
+        <p class="applicant-name">{{ s.name }}</p>
+        <p class="applicant-email">{{ s.email }}</p>
+        <p *ngIf="s.branch && s.year" class="applicant-branch">
+          {{ s.branch }} - Year {{ s.year }}
+        </p>
+        <p *ngIf="s.appliedTo" class="applied-job">
+          Applied for: <strong>{{ s.appliedTo }}</strong>
+        </p>
+        <p *ngIf="s.appliedAt" class="applied-date">
+          Applied on: {{ s.appliedAt | date:'mediumDate' }}
+        </p>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button class="delete-btn" (click)="deleteApplicant(i)">
+        <span class="material-icons">delete</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #noApplicants>
+  <p>No applicants yet.</p>
+</ng-template>

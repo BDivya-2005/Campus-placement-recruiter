@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #4f46e5;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4f46e5;
+  color: white;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #6366f1;
+}
+
+input {
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

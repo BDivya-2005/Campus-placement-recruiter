@@ -1,0 +1,44 @@
+<div class="dashboard-wrapper">
+  <header class="dashboard-header">
+    <h2 class="welcome-message">Manage Questions</h2>
+  </header>
+
+  <main class="dashboard-content">
+    <div class="add-question-container">
+      <form (ngSubmit)="addQuestion()" #questionForm="ngForm">
+        <div class="form-group">
+          <label for="title">Question Title:</label>
+          <input type="text" id="title" [(ngModel)]="questionTitle" name="title" placeholder="Enter question title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty" [(ngModel)]="questionDifficulty" name="difficulty" required>
+            <option value="">Select</option>
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+
+        <button type="submit" [disabled]="questionForm.invalid">
+          {{ isEditing ? 'Update Question' : 'Add Question' }}
+        </button>
+        <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
+      </form>
+
+      <p *ngIf="successMsg" class="success-msg">{{ successMsg }}</p>
+
+      <div class="questions-list" *ngIf="questions.length > 0">
+        <h3>Existing Questions</h3>
+        <ul>
+          <li *ngFor="let q of questions; let i = index">
+            {{ q.title }} ({{ q.difficulty }})
+            <button (click)="editQuestion(i)">Edit</button>
+            <button (click)="deleteQuestion(i)">Delete</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>

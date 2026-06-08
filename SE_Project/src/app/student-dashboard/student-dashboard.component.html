@@ -1,0 +1,57 @@
+<div class="dashboard-wrapper">
+  <header class="dashboard-header">
+    <h2 class="welcome-message">Welcome, {{ studentProfile.name }}!</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </header>
+
+  <main class="dashboard-content">
+    <!-- Quick Links -->
+    <section class="quick-links">
+      <div class="card" routerLink="/student/profile">
+        <i class="icon-user"></i>
+        <h3>Profile</h3>
+        <p>Manage and update your personal information.</p>
+      </div>
+      <div class="card" routerLink="/student/jobs">
+        <i class="icon-briefcase"></i>
+        <h3>Jobs</h3>
+        <p>Browse and apply for available positions.</p>
+      </div>
+      <div class="card" routerLink="/student/questions">
+        <i class="icon-message"></i>
+        <h3>Interview Questions</h3>
+        <p>Prepare for your interviews with practice questions.</p>
+      </div>
+      <div class="card" routerLink="/student/resume">
+        <i class="icon-upload"></i>
+        <h3>Upload Resume</h3>
+        <p>Submit your latest resume for employers.</p>
+      </div>
+    </section>
+
+    <!-- Dynamic Content -->
+    <section class="dynamic-content">
+
+      <!-- Recent Activities -->
+      <div class="content-card">
+        <h3>Recent Activity</h3>
+        <ul>
+          <li *ngFor="let act of activities">
+            {{ act.description }} - <em>{{ act.createdAt | date:'mediumDate' }}</em>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Interview Questions -->
+      <div class="content-card">
+        <h3>Interview Questions</h3>
+        <ul>
+          <li *ngFor="let q of interviewQuestions">
+            {{ q.title }} ({{ q.difficulty }})
+          </li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+</div>

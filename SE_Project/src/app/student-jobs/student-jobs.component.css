@@ -1,0 +1,74 @@
+/* 🌈 Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6fa;
+  color: #333;
+}
+
+/* 🌟 Page Title */
+h2 {
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #00c6ff;
+  padding-left: 10px;
+  font-size: 1.6rem;
+}
+
+/* 🌟 Job Cards Container */
+.job-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 📝 Job Card Content */
+.job-card h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.job-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* 🔑 Apply Button */
+.job-card button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.job-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 198, 255, 0.4);
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .job-card {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,50 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <h2>Register</h2>
+
+    <!-- Role Selection -->
+    <div class="role-selection">
+      <button *ngFor="let role of roles"
+              (click)="selectRole(role.type)"
+              [ngStyle]="{
+                'background-color': selectedRole === role.type ? role.color : '#e0e0e0',
+                'color': selectedRole === role.type ? 'white' : 'black'
+              }">
+        {{ role.title }}
+      </button>
+    </div>
+
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+      
+      <!-- Username only for student -->
+      <div *ngIf="selectedRole === 'student'">
+        <label>Username</label>
+        <input type="text" name="username" [(ngModel)]="username" placeholder="Enter username" required>
+      </div>
+
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="email" placeholder="{{getDemoEmail()}}" required>
+
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm password" required>
+
+      <!-- Company Name only for company role -->
+      <div *ngIf="selectedRole === 'company'">
+        <label>Company Name</label>
+        <input type="text" name="companyName" [(ngModel)]="companyName" placeholder="Enter Company Name" required>
+      </div>
+
+      <div *ngIf="error" class="error-msg">{{ error }}</div>
+      <div *ngIf="successMsg" class="success-msg">{{ successMsg }}</div>
+
+      <button type="submit" [disabled]="registerForm.invalid || loading">
+        {{ loading ? 'Registering...' : 'Register' }}
+      </button>
+
+      <p>Already have an account? <a [routerLink]="['/login']">Login</a></p>
+    </form>
+  </div>
+</div>
